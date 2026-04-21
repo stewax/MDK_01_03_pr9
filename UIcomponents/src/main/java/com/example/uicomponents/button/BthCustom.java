@@ -1,5 +1,4 @@
 package com.example.uicomponents.button;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
@@ -15,36 +14,35 @@ import com.example.uicomponents.R;
 public class BthCustom extends ConstraintLayout {
     public Button Bth;
 
-
-    public enum TypeButton {
+    public enum TypeButton{
         PRIMARY, TERTIARY, SECONDARY, OFF, ON
     }
-
-    public BthCustom(@NonNull Context context) {
+    public  BthCustom(@NonNull Context context){
         super(context);
         init(null);
     }
 
-    public BthCustom(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public  BthCustom(@NonNull Context context, @Nullable AttributeSet attrs){
         super(context, attrs);
         init(null);
     }
 
-    public BthCustom(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public  BthCustom(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr){
         super(context, attrs, defStyleAttr);
         init(null);
     }
-    public void init(Integer idLayout) {
-        if (idLayout == null) return;
+
+    public void init(Integer idLayout){
+        if (idLayout == null)return;
+
         LayoutInflater.from(this.getContext()).inflate(idLayout, this, true);
         Bth = findViewById(R.id.bth);
     }
 
-    public void init(String value, TypeButton type) {
-        // Устанавливаем текст на кнопке
+    public void init(String value, TypeButton type){
         Bth.setText(value);
-        // Применяем стиль в зависимости от типа кнопки
-        if (type == TypeButton.PRIMARY || type == TypeButton.ON) {
+
+        if (type == TypeButton.PRIMARY || type == TypeButton.ON){
             Bth.setBackgroundResource(R.drawable.bth_primary);
             Bth.setTextColor(Color.parseColor("#FFFFFF"));
         } else if (type == TypeButton.SECONDARY) {
@@ -60,8 +58,8 @@ public class BthCustom extends ConstraintLayout {
     }
 
     @Override
-    public void setEnabled(boolean enabled) {
-        super.setEnabled(enabled);
-        Bth.setEnabled(enabled);
+    public void setEnabled(boolean enable){
+        super.setEnabled(enable);
+        Bth.setEnabled(enable);
     }
 }
